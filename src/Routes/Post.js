@@ -1,0 +1,1 @@
+export default () => "포스트";

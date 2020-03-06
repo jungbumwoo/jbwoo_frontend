@@ -1,0 +1,1 @@
+export default () => "홈이란다."

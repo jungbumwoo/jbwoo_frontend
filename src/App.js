@@ -1,23 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { HashRouter as Switch, Router, Route } from "react-router-dom";
+import Home from "./Routes/Home";
+import Post from "./Routes/Post";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render(){
+    return (
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/post" component={Post} />
+        </Switch>
+    );
+  }
 }
 
 export default App;
