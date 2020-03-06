@@ -6,10 +6,14 @@ import Post from "./Routes/Post";
 class App extends Component {
   render(){
     return (
-        <Switch>
+      <Router>
+        <div>
+          <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/post" component={Post} />
-        </Switch>
+            <Route path="post" component={Post} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
