@@ -2,10 +2,10 @@
 
 import React from "react";
 
-const Post = () => {
+const Post = ({location}) => {
     return(
         <div>
-            <h3>Post이오.</h3>
+            <h3>아오 제발</h3>
         </div>
     )
 };
