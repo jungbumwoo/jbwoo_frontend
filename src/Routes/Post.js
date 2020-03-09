@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const Post = ({location}) => {
+const Post = () => {
     return(
         <div>
             <h3>아오 제발</h3>
