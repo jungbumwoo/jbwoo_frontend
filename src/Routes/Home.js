@@ -12,7 +12,6 @@ const GET_ALLPOST = gql`
             subtitle    
         }
     }
-    
 `;
 
 export default () => {
