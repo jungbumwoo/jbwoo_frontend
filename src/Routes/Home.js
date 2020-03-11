@@ -4,23 +4,19 @@ import { useQuery } from "@apollo/react-hooks";
 
 
 const GET_ALLPOST = gql`
-    query{
+    {
         allPosts{
-        title
-        subtitle
-        
+            title
+            subtitle    
         }
     }
+    
 `;
-
-
 const Home = () => {
-    const baba = useQuery(GET_ALLPOST);
-    console.log(baba);
+    const { data } = useQuery(GET_ALLPOST);
+    console.log(data ? data.allPosts[0].title : null);
     return(
-        <div>
-            <h3>Home</h3>
-        </div>
+        <div>afds</div>
     )
 };
 

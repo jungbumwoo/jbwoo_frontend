@@ -1,13 +1,15 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import App from './App';
+import client from "./apollo";
+import {ApolloProvider} from "@apollo/react-hooks"
+
 
 ReactDOM.render(
-    <BrowserRouter>
+    <ApolloProvider client={client}>
         <App />
-    </BrowserRouter>,
- document.getElementById('root'));
+    </ApolloProvider>,
+    document.getElementById('root'));
 
 
 
