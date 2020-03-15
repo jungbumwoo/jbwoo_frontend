@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
 import styled from "styled-components";
 import dotenv from "dotenv";
+import path from "path";
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, ".env")});
+
 
 const Container = styled.div`
     display: flex;
@@ -29,9 +31,9 @@ class Login extends Component {
     }
 
     render() {
-        console.log(process.env.GAPI)
+        console.log(process.env.BB);
+        console.log("Is env working?")
         return (
-            
             <Container>
                 <GoogleLogin
                     clientId={process.env.G_CLIENT_ID}
