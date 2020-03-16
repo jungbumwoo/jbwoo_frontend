@@ -21,8 +21,6 @@ export default () => {
     console.log(data ? data.allPosts[0].title : null);
     return(
         <div>
-            <Header />
-            <Navigation />
             {loading && <div>Loading...</div>}
             {!loading && data.allPosts && (
                 <div>

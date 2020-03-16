@@ -3,8 +3,9 @@ import { GoogleLogin } from "react-google-login";
 import styled from "styled-components";
 import dotenv from "dotenv";
 import path from "path";
+import { withRouter } from "react-router-dom";
 
-dotenv.config({ path: path.resolve(__dirname, ".env")});
+dotenv.config();
 
 
 const Container = styled.div`
@@ -23,7 +24,12 @@ class Login extends Component {
     }
     // Google Login
     responseGoogle = (res) => {
-        console.log(res)
+        console.log(res);
+        this.setState({
+            id: res.googleId,
+            name: res.profileObj.name,
+            provider: "google"
+        });
     }
     // Login Fail
     responseFail = (err) => {
@@ -36,8 +42,8 @@ class Login extends Component {
         return (
             <Container>
                 <GoogleLogin
-                    clientId={process.env.G_CLIENT_ID}
-                    buttonText="Google"
+                    clientId=""
+                    buttonText="Google Login"
                     onSuccess={this.responseGoogle}   
                     onFailure={this.responseFail}
                 />
@@ -46,4 +52,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

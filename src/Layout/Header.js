@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     width: 100%;
@@ -35,10 +36,15 @@ const Search = styled.div`
 
 class Header extends Component {
     render() {
+
+        const { logged, onLogout } = this.props;
+
         return (
             <Container>
                 <Element>
-                    <Shortcut>로그인/회원가입</Shortcut>
+                    { logged ? 
+                    <Shortcut><Link to="/" onClick={onLogout}>로그아웃</Link></Shortcut> :
+                    <Shortcut><Link to="/login">로그인/회원가입</Link></Shortcut>}
                     <Logo>
                         <img 
                             src="https://lh3.googleusercontent.com/proxy/AQ0oRmTJgvEwn_INlnin-i67YO4P6F3AfrDnvrdcJihrJcBAFEYedW9ROHlE44MNdM8i23Ci0aB_EMeAX5_OmrmEuvUZYrEm020TGuziAdKuV_k8Ts3v3X0C" 
