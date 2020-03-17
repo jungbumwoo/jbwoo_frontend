@@ -41,8 +41,10 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     const { logged, onLogout } = this.state;
-
+    console.log(`logged is :` + logged);
+    console.log(`onLogout is : ` + onLogout);
     return (
         <Store.Provider value={this.state}>
           <Layout>
@@ -52,7 +54,7 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/login" component={Login} />
             <Route path="/post/:id" component={postDetail}/>
-          
+        
           </Router>
           </Layout>
         </Store.Provider>
