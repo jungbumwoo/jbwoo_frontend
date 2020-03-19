@@ -39,8 +39,9 @@ class Login extends Component {
     }
 
     render() {
-        console.log(`this.prop:` + JSON.stringify(this.props));
-        console.log(process.env.BB);
+        console.log(`this.state in /login :   ` + JSON.stringify(this.state));
+        console.log(`this.props:` + JSON.stringify(this.props));
+        console.log(`this.props.onLogin:  `+ this.props.onLogin);
         console.log("Is env working?")
         return (
             <Container>

@@ -46,11 +46,11 @@ class App extends Component {
     const { logged, onLogin, onLogout } = this.state;
 
     console.log(`this.state2 : ` + JSON.stringify(this.state));
-    console.log(`this.state.onLogin : ` + JSON.stringify(this.state.onLogin));
+    console.log(`this.state.onLogin : ` + this.state.onLogin);
     console.log(`logged is :` + logged);
     console.log(`onLogin is : ` + onLogin);
     return (
-        <Store.Provider value={this.state, this.state.onLogin}>
+        <Store.Provider value={this.state}>
           <Layout>
           <Router>
           <Header logged={logged} onLogout={onLogout} />
@@ -65,7 +65,6 @@ class App extends Component {
         
     )
   }
-
 }
 export default App;
 
