@@ -41,12 +41,16 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
-    const { logged, onLogout } = this.state;
+    console.log(`this.state1 : ` + JSON.stringify(this.state));
+
+    const { logged, onLogin, onLogout } = this.state;
+
+    console.log(`this.state2 : ` + JSON.stringify(this.state));
+    console.log(`this.state.onLogin : ` + JSON.stringify(this.state.onLogin));
     console.log(`logged is :` + logged);
-    console.log(`onLogout is : ` + onLogout);
+    console.log(`onLogin is : ` + onLogin);
     return (
-        <Store.Provider value={this.state}>
+        <Store.Provider value={this.state, this.state.onLogin}>
           <Layout>
           <Router>
           <Header logged={logged} onLogout={onLogout} />
@@ -58,6 +62,7 @@ class App extends Component {
           </Router>
           </Layout>
         </Store.Provider>
+        
     )
   }
 
