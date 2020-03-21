@@ -36,7 +36,8 @@ const Search = styled.div`
 
 class Header extends Component {
     render() {
-
+        console.log(`Header this.props 1 :  ` + JSON.stringify(this.props)) ;
+        console.log(`this.props.onLogout :  ` + this.props.onLogout)
         const { logged, onLogout } = this.props;
 
         return (

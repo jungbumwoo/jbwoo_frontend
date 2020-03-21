@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
 import styled from "styled-components";
 import dotenv from "dotenv";
-import path from "path";
 import { withRouter } from "react-router-dom";
 
 dotenv.config();
@@ -24,14 +23,14 @@ class Login extends Component {
     }
     // Google Login
     responseGoogle = (res) => {
-        console.log(res);
         this.setState({
             id: res.googleId,
             name: res.profileObj.name,
             provider: "google"
         });
+        this.onLogin();
         this.props.history.push('/');
-        this.props.onLogin();   
+
     }
     // Login Fail
     responseFail = (err) => {
@@ -41,7 +40,7 @@ class Login extends Component {
     render() {
         console.log(`this.state in /login :   ` + JSON.stringify(this.state));
         console.log(`this.props:` + JSON.stringify(this.props));
-        console.log(`this.props.onLogin:  `+ this.props.onLogin);
+        console.log(`this.props.logged:  `+ this.props.logged);
         console.log("Is env working?")
         return (
             <Container>
