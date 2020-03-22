@@ -5,9 +5,10 @@ import Login from "./Login";
 const LoginContainer = () => (
     <Store.Consumer>
         {value => (
-            <Login onLogin={value} />
+            <Login abcd={value} />
         )}
     </Store.Consumer>
 );
 
 export default LoginContainer;
+

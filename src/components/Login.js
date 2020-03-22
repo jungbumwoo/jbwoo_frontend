@@ -3,6 +3,8 @@ import { GoogleLogin } from "react-google-login";
 import styled from "styled-components";
 import dotenv from "dotenv";
 import { withRouter } from "react-router-dom";
+import Store from "../Store/store";
+
 
 dotenv.config();
 
@@ -28,7 +30,7 @@ class Login extends Component {
             name: res.profileObj.name,
             provider: "google"
         });
-        this.onLogin();
+        this.props.abcd.onLogin();
         this.props.history.push('/');
 
     }
@@ -40,17 +42,22 @@ class Login extends Component {
     render() {
         console.log(`this.state in /login :   ` + JSON.stringify(this.state));
         console.log(`this.props:` + JSON.stringify(this.props));
-        console.log(`this.props.logged:  `+ this.props.logged);
+        console.log(`this.props.abcd.logged:  `+ this.props.abcd.logged);
         console.log("Is env working?")
         return (
+            <>
+            <div>
+                blabla
+            </div>
             <Container>
-                <GoogleLogin
-                    clientId="32559549898-eejrqkr1omcv2c1j6ejk5hp6ekitgpn2.apps.googleusercontent.com"
-                    buttonText="Google Login"
-                    onSuccess={this.responseGoogle}   
-                    onFailure={this.responseFail}
-                />
+                    <GoogleLogin
+                        clientId="32559549898-eejrqkr1omcv2c1j6ejk5hp6ekitgpn2.apps.googleusercontent.com"
+                        buttonText="Google Login"
+                        onSuccess={this.responseGoogle}   
+                        onFailure={this.responseFail}
+                    />
             </Container>
+            </>
         );
     }
 }

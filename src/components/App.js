@@ -7,6 +7,7 @@ import Navigation from "../Layout/Navigation";
 import Header from "../Layout/Header";
 import styled from "styled-components";
 import Store from "../Store/store";
+import LoginContainer from "./LoginContainer";
 
 const Layout = styled.div`
   margin: 0 auto;
@@ -56,7 +57,9 @@ class App extends Component {
           <Header logged={logged} onLogout={onLogout} />
           <Navigation />
             <Route exact path="/" component={Home}/>
-            <Route path="/login" component={Login} />
+            <LoginContainer>
+              <Route path="/login" component={Login} />
+            </LoginContainer>
             <Route path="/post/:id" component={postDetail}/>
         
           </Router>
