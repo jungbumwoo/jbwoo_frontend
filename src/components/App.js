@@ -57,11 +57,8 @@ class App extends Component {
           <Header logged={logged} onLogout={onLogout} />
           <Navigation />
             <Route exact path="/" component={Home}/>
-            <LoginContainer>
-              <Route path="/login" component={Login} />
-            </LoginContainer>
+            <Route path="/login" component={Login} />
             <Route path="/post/:id" component={postDetail}/>
-        
           </Router>
           </Layout>
         </Store.Provider>
