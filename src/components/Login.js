@@ -4,7 +4,7 @@ import styled from "styled-components";
 import dotenv from "dotenv";
 import { withRouter } from "react-router-dom";
 import Store from "../Store/store";
-
+import { LoginContainer } from "./LoginContainer";
 
 dotenv.config();
 
@@ -57,6 +57,7 @@ class Login extends Component {
                         onFailure={this.responseFail}
                     />
             </Container>
+            <LoginContainer />
             </>
         );
     }

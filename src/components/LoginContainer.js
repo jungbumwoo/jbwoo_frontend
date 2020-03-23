@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Store from "../Store/store";
-import Login from "./Login";
+import LoginConsumer from "./LoginConsumer";
 
 const LoginContainer = () => (
     <Store.Consumer>
         {value => (
-            <Login abcd={value} />
+            <LoginConsumer abcd={value} />
         )}
     </Store.Consumer>
 );
