@@ -4,7 +4,7 @@ import styled from "styled-components";
 import dotenv from "dotenv";
 import { withRouter } from "react-router-dom";
 import Store from "../Store/store";
-import { LoginContainer } from "./LoginContainer";
+import LoginContainer from "./LoginContainer";
 
 dotenv.config();
 
@@ -40,24 +40,10 @@ class Login extends Component {
     }
 
     render() {
-        console.log(`this.state in /login :   ` + JSON.stringify(this.state));
-        console.log(`this.props:` + JSON.stringify(this.props));
-        console.log(`this.props.abcd.logged:  `+ this.props.abcd.logged);
-        console.log("Is env working?")
+        console.log(`this.props in /login :   ` + JSON.stringify(this.props));
         return (
             <>
-            <div>
-                blabla
-            </div>
-            <Container>
-                    <GoogleLogin
-                        clientId="32559549898-eejrqkr1omcv2c1j6ejk5hp6ekitgpn2.apps.googleusercontent.com"
-                        buttonText="Google Login"
-                        onSuccess={this.responseGoogle}   
-                        onFailure={this.responseFail}
-                    />
-            </Container>
-            <LoginContainer />
+              <LoginContainer bbb={this.props} />
             </>
         );
     }

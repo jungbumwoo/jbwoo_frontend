@@ -7,6 +7,7 @@ import Navigation from "../Layout/Navigation";
 import Header from "../Layout/Header";
 import styled from "styled-components";
 import Store from "../Store/store";
+import LoginConsumer from "./LoginConsumer";
 import LoginContainer from "./LoginContainer";
 
 const Layout = styled.div`

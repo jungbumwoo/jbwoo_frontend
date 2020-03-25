@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Store from "../Store/store";
 import LoginConsumer from "./LoginConsumer";
 
-const LoginContainer = () => (
+const LoginContainer = (props) => (
     <Store.Consumer>
         {value => (
-            <LoginConsumer abcd={value} />
+            <LoginConsumer abcd={value, props} />
         )}
     </Store.Consumer>
 );
