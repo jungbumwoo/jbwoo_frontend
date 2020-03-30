@@ -5,7 +5,7 @@ import LoginConsumer from "./LoginConsumer";
 const LoginContainer = (props) => (
     <Store.Consumer>
         {value => (
-            <LoginConsumer abcd={value, props} />
+            <LoginConsumer abcd={value} fff={props} />
         )}
     </Store.Consumer>
 );

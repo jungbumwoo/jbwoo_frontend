@@ -42,6 +42,16 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    const id = window.sessionStorage.getItem('id');
+    if (id) {
+      this.onLogin();
+    }
+    else {
+      this.onLogout();
+    }
+  };
+
   render() {
     console.log(`this.state1 : ` + JSON.stringify(this.state));
 

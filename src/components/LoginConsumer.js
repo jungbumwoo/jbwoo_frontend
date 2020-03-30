@@ -1,10 +1,28 @@
 import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
 import styled from "styled-components";
+import { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
 
 const Container = styled.div`
     display: flex;
     flex-flow: column wrap;
+`
+
+const saveLogin = gql`
+    mutation{
+        createUser(
+            id:"",
+            name:"",
+            provider:"",
+            email:""
+        ){
+            id,
+            name,
+            provider,
+            email
+        }
+    }
 `
 
 class LoginConsumer extends React.Component {
@@ -23,19 +41,28 @@ class LoginConsumer extends React.Component {
             name: res.profileObj.name,
             provider: "google"
         });
-        this.props.abcd.bbb.onLogin();
-        this.props.history.push('/');
-
+        this.doSignUp();
     }
     // Login Fail
     responseFail = (err) => {
         console.log(err);
     }
+    doSignUp = () => {
+        const { id, name, provider } = this.state;
+
+        window.sessionStorage.setItem('id',id);
+        window.sessionStorage.setItem('name', name);
+        window.sessionStorage.setItem('provider', provider);
+        this.props.abcd.onLogin();
+        this.props.fff.bbb.history.push('/');
+
+    }
+
     // 여기서 로그인 처리를 해버렸!
     render(){
         console.log(`this.state in /loginConsumer :   ` + JSON.stringify(this.state));
         console.log(`this.props in /loginConsumer:` + JSON.stringify(this.props));
-        console.log(`this.props.abcd.bbb  `+ JSON.stringify(this.props.abcd.bbb));
+        console.log(`this.props.abcd 은!!!` + JSON.stringify(this.props.abcd));
         console.log(`this.props.abcd.onLogin:  `+ this.props.abcd.onLogin);
         return(
             <Container>
@@ -51,3 +78,22 @@ class LoginConsumer extends React.Component {
 }
 
 export default LoginConsumer;
+
+
+/*
+mutation{
+  createUser(
+    id:"",
+    name:"",
+    provider:"",
+    email:""
+  ){
+    id,
+    name,
+    provider,
+    email
+    
+  }
+}
+
+*/
